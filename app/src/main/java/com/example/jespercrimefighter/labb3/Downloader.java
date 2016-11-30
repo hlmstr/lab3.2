@@ -12,9 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by jespercrimefighter on 11/23/16.
- * TODO: parserklass som fixar indatan och fixar den, synca trådarna, popup window grejen
- *
+ * Created by jespercrimefighter on 11/23/16
  */
 
 public class Downloader extends AsyncTask<String, Integer, String> {
@@ -71,11 +69,9 @@ public class Downloader extends AsyncTask<String, Integer, String> {
             e.printStackTrace();
         }
 
+        //@// TODO: 2016-11-30 Skicka itemList till popUp listan.
         interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField());
 
-        //interactiveSearcher.getPopUpList().dostuff()
-
-        //pul.getPopupWindow().showdsfgdjsh(pul.getTextField());
 
 
     }

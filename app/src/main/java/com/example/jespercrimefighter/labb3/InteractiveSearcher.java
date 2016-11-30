@@ -31,13 +31,10 @@ public class InteractiveSearcher extends LinearLayout {
     public InteractiveSearcher(Context context) {
         super(context);
         setup(context);
-
     }
 
-
-
     private void setup(final Context context) {
-        searchField = (EditText) new EditText(context);
+        searchField = new EditText(context);
         popUpList = new PopUpList(context);
         thisIS = this;
         this.addView(searchField);
@@ -46,7 +43,7 @@ public class InteractiveSearcher extends LinearLayout {
         this.setLayoutParams(params);
         searchField.setLayoutParams(params);
 
-        //test
+         //@ TODO: 2016-11-30 bör göras i Init() i popuplistan
         LinearLayout layout = new LinearLayout(context);
         layout.addView(new Button(context));
         popUpList.setContentView(layout);
