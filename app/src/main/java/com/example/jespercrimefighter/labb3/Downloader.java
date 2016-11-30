@@ -73,6 +73,5 @@ public class Downloader extends AsyncTask<String, Integer, String> {
         interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField());
 
 
-
     }
 }

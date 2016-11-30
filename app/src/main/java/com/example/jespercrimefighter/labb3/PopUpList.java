@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 public class PopUpList extends /*List*/PopupWindow {
 
-
     JSONArray itemList;
 
     public PopUpList(Context context) {

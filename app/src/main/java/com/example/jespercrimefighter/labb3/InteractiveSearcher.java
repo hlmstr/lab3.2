@@ -28,6 +28,7 @@ public class InteractiveSearcher extends LinearLayout {
     private InteractiveSearcher thisIS;
     private EditText searchField;
 
+
     public InteractiveSearcher(Context context) {
         super(context);
         setup(context);
