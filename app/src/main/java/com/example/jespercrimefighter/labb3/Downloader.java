@@ -2,6 +2,7 @@ package com.example.jespercrimefighter.labb3;
 
 import android.os.AsyncTask;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,7 +19,12 @@ import java.net.URL;
 
 public class Downloader extends AsyncTask<String, Integer, String> {
 
-    private PopUpList pul;
+    private InteractiveSearcher interactiveSearcher;
+
+    public Downloader(InteractiveSearcher is){
+        interactiveSearcher = is;
+    }
+
     private String connect(final String searchTerm, final String id) {
         URL url;
         String indata ="";
@@ -54,8 +60,23 @@ public class Downloader extends AsyncTask<String, Integer, String> {
     }
 
     protected void onPostExecute(String result){
-        pul = InteractiveSearcher.pul;
-        pul.handleResult(result);
+        JSONObject json=null;
+        JSONArray itemList;
+        System.out.println("indata: " + result);
+        try {
+            json = new JSONObject(result);
+            itemList = json.getJSONArray("result");
+            System.out.println("itemList: " + itemList);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField());
+
+        //interactiveSearcher.getPopUpList().dostuff()
+
+        //pul.getPopupWindow().showdsfgdjsh(pul.getTextField());
+
 
     }
 }

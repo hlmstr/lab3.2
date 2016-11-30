@@ -43,20 +43,8 @@ public class PopUpList extends /*List*/PopupWindow {
         init(context);
     }
     private void init(Context context) {
-        //View popUp = new View(context);
 
     }
-    public void handleResult(String indata){
-        JSONObject json=null;
-        System.out.println("indata: " + indata);
-        try {
-            json = new JSONObject(indata);
-            itemList = json.getJSONArray("result");
-            System.out.println("itemList: " + itemList);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-    }
 
 }

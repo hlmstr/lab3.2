@@ -24,26 +24,32 @@ import java.net.URL;
 public class InteractiveSearcher extends LinearLayout {
     int SEARCHID = 0;
 
+    private PopUpList popUpList;
+    private InteractiveSearcher thisIS;
+    private EditText searchField;
+
     public InteractiveSearcher(Context context) {
         super(context);
         setup(context);
+
     }
 
 
-    static PopUpList pul;
+
     private void setup(final Context context) {
-        EditText searchField = (EditText) new EditText(context);
-        pul = new PopUpList(context);
+        searchField = (EditText) new EditText(context);
+        popUpList = new PopUpList(context);
+        thisIS = this;
         this.addView(searchField);
         this.setOrientation(LinearLayout.HORIZONTAL);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         this.setLayoutParams(params);
         searchField.setLayoutParams(params);
-        PopUpList pul = new PopUpList(context);
-        //downloader.setPopUpList(pul);
-        PopupWindow p = new PopupWindow(2000,200);
-        p.showAtLocation(searchField, Gravity.CENTER, 50,50);
 
+        //test
+        LinearLayout layout = new LinearLayout(context);
+        layout.addView(new Button(context));
+        popUpList.setContentView(layout);
 
         searchField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -58,7 +64,7 @@ public class InteractiveSearcher extends LinearLayout {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                new Downloader().execute(editable.toString(), String.valueOf(SEARCHID));
+                new Downloader(thisIS).execute(editable.toString(), String.valueOf(SEARCHID));
                 SEARCHID++;
             }
         });
@@ -68,6 +74,13 @@ public class InteractiveSearcher extends LinearLayout {
     }
 
 
+    public PopUpList getPopUpList(){
+        return popUpList;
+    }
+
+    public EditText getSearchField(){
+        return searchField;
+    }
 
 
 
