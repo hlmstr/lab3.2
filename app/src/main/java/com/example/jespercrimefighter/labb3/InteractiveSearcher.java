@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
+import org.json.JSONArray;
+
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,6 +30,8 @@ public class InteractiveSearcher extends LinearLayout {
     private InteractiveSearcher thisIS;
     private EditText searchField;
 
+    private JSONArray itemList;
+
     public InteractiveSearcher(Context context) {
         super(context);
         setup(context);
@@ -42,12 +46,6 @@ public class InteractiveSearcher extends LinearLayout {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         this.setLayoutParams(params);
         searchField.setLayoutParams(params);
-
-
-         //@ TODO: 2016-11-30 bör göras i Init() i popuplistan
-        LinearLayout layout = new LinearLayout(context);
-        layout.addView(new Button(context));
-        popUpList.setContentView(layout);
 
         searchField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -68,7 +66,10 @@ public class InteractiveSearcher extends LinearLayout {
         });
 
 
+    }
 
+    public void setItemList(JSONArray list){
+        itemList = list;
     }
 
 

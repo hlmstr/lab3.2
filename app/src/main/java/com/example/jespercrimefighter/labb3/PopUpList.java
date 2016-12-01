@@ -3,8 +3,11 @@ package com.example.jespercrimefighter.labb3;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,10 +44,14 @@ public class PopUpList extends /*List*/PopupWindow {
     }
 
     /**
-     *@TODO: 2016-11-30 Skapa en layout och sätt in i contentview. Sendan måste vi skapa en ny componet som ärver från view som vi kan skriva ut listan på.
+     *@TODO: 2016-11-30 Skapa en en ny component som ärver från view som vi kan skriva ut listan på.
      */
     private void init(Context context) {
-
+        LinearLayout layout = new LinearLayout(context);
+        TextView textView = new TextView(context);
+        textView.setText("POPUP");
+        layout.addView(textView);
+        this.setContentView(layout);
     }
 
 

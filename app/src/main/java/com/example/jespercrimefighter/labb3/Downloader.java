@@ -59,8 +59,8 @@ public class Downloader extends AsyncTask<String, Integer, String> {
     }
 
     protected void onPostExecute(String result){
-        JSONObject json=null;
-        JSONArray itemList;
+        JSONObject json = null;
+        JSONArray itemList = null;
         System.out.println("indata: " + result);
         try {
             json = new JSONObject(result);
@@ -69,7 +69,7 @@ public class Downloader extends AsyncTask<String, Integer, String> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //@// TODO: 2016-11-30 Skicka itemList till popUp listan.
-        interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField());
+        interactiveSearcher.setItemList(itemList); //Skicka reslutaten
+        interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField()); //Visa popup
     }
 }
