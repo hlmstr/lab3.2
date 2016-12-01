@@ -40,7 +40,6 @@ public class PopUpList extends /*List*/PopupWindow {
         init(context);
     }
 
-
     /**
      *@TODO: 2016-11-30 Skapa en layout och sätt in i contentview. Sendan måste vi skapa en ny componet som ärver från view som vi kan skriva ut listan på.
      */

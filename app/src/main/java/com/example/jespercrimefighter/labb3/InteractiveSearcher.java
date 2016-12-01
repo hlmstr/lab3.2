@@ -43,6 +43,7 @@ public class InteractiveSearcher extends LinearLayout {
         this.setLayoutParams(params);
         searchField.setLayoutParams(params);
 
+
          //@ TODO: 2016-11-30 bör göras i Init() i popuplistan
         LinearLayout layout = new LinearLayout(context);
         layout.addView(new Button(context));
