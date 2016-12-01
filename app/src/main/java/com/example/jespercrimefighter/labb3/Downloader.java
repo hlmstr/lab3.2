@@ -68,7 +68,6 @@ public class Downloader extends AsyncTask<String, Integer, String> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         //@// TODO: 2016-11-30 Skicka itemList till popUp listan.
         interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField());
     }
