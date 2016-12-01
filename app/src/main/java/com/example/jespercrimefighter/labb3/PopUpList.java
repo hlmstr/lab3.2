@@ -23,7 +23,6 @@ public class PopUpList extends /*List*/PopupWindow {
         init(context);
     }
 
-
     public PopUpList(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);

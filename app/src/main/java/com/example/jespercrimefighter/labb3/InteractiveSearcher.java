@@ -67,7 +67,6 @@ public class InteractiveSearcher extends LinearLayout {
         });
 
 
-
     }
 
 

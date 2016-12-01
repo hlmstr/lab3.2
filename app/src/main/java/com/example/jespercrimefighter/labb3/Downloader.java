@@ -71,6 +71,5 @@ public class Downloader extends AsyncTask<String, Integer, String> {
 
         //@// TODO: 2016-11-30 Skicka itemList till popUp listan.
         interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField());
-
     }
 }
