@@ -52,7 +52,7 @@ public class Downloader extends AsyncTask<String, Integer, String> {
         return indata;
     }
 
-
+    //d
     @Override
     protected String doInBackground(String... params) {
         return connect(params[0], params[1]);
