@@ -60,16 +60,20 @@ public class Downloader extends AsyncTask<String, Integer, String> {
 
     protected void onPostExecute(String result){
         JSONObject json = null;
+        int id = -1;
         JSONArray itemList = null;
         System.out.println("indata: " + result);
         try {
             json = new JSONObject(result);
             itemList = json.getJSONArray("result");
+            id = json.getInt("id");
             System.out.println("itemList: " + itemList);
         } catch (JSONException e) {
-            e.printStackTrace();
+            interactiveSearcher.getPopUpList().dismiss();
         }
-        interactiveSearcher.setItemList(itemList); //Skicka reslutaten
-        interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField()); //Visa popup
+        if(id > interactiveSearcher.getPopUpList().getLargestID()){
+            interactiveSearcher.getPopUpList().update(itemList, id);//Skicka reslutaten
+            interactiveSearcher.getPopUpList().showAsDropDown(interactiveSearcher.getSearchField()); //Visa popup
+        }
     }
 }

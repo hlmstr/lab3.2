@@ -30,7 +30,6 @@ public class InteractiveSearcher extends LinearLayout {
     private InteractiveSearcher thisIS;
     private EditText searchField;
 
-    private JSONArray itemList;
 
     public InteractiveSearcher(Context context) {
         super(context);
@@ -67,12 +66,6 @@ public class InteractiveSearcher extends LinearLayout {
 
 
     }
-
-    public void setItemList(JSONArray list){
-        itemList = list;
-    }
-
-
     public PopUpList getPopUpList(){
         return popUpList;
     }

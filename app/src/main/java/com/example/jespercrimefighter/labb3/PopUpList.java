@@ -19,39 +19,31 @@ import org.json.JSONObject;
 
 public class PopUpList extends /*List*/PopupWindow {
 
-    JSONArray itemList;
+    private ListDisplay listDisplay;
+    private int largestID;
 
     public PopUpList(Context context) {
         super(context);
         init(context);
     }
 
-    public PopUpList(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
 
-    }
 
-    public PopUpList(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context);
-
-    }
-
-    public PopUpList(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
-    }
-
-    /**
-     *@TODO: 2016-11-30 Skapa en en ny component som ärver från view som vi kan skriva ut listan på.
-     */
     private void init(Context context) {
         LinearLayout layout = new LinearLayout(context);
-        TextView textView = new TextView(context);
-        textView.setText("POPUP");
-        layout.addView(textView);
+        listDisplay = new ListDisplay(context);
+        layout.addView(listDisplay);
         this.setContentView(layout);
+        largestID = -1;
+    }
+
+    public void update(JSONArray jsonArray, int newLargestID){
+        largestID = newLargestID;
+        listDisplay.update(jsonArray);
+    }
+
+    public int getLargestID(){
+        return largestID;
     }
 
 
